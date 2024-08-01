@@ -1,0 +1,33 @@
+User Stories: 
+
+As a player, I want to see a landing page to know that I am on the right page. 
+As a player, I want to a see instructions, riddles, answer textboxs, and a submit answer button. 
+As a player, I want to be able to type in my answer to the question in a text box. 
+As a player, I want to be able to click the “submit answers” button to submit answer. 
+As a player, I want to a message to know if I have won OR was lost. 
+As a player, I want the option to reset the game to try the again. 
+
+PseudoCode: 
+
+// constants
+// Questions = {} object w/questions & answers 
+// state variables 
+	// let answer; define variable to store selected answer
+	// let answer correctly; define variable that keeps track of correct answers
+	// let score; define variable for tracking score 
+	// let winner; define message IF player won
+// cached elements
+	// text box (make sure user can type in and I can get element) 
+// event listeners 
+// add event listener to “submit answer” button  
+// add event listener to “play again” button
+// access questions in Questions 
+// compare player answers to answers in objects → iterate 
+// IF answers to questions from player is the same as answers to the question add to player score 
+// IF player score is => 2
+	// THEN player wins 
+	// message player has one 
+// Select reset game buttom to restart game 
+
+ICEBOX ideas: timer, levels 
+	
