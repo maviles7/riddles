@@ -17,7 +17,7 @@ let currentRiddleIdx; //tracking current riddle index in RIDDLE_KEYS
 let RiddleAns; //tracking answer to current riddle 
 let score; //checking to see if players score is correct & track 
 let winner; //did player get 2/3 answers correctly 
-let playerInput; 
+let playerInput; //player's inputed answer
 
 /*----- Cached Element References - things that need to reference the DOM elements -----*/
 
@@ -30,6 +30,7 @@ const resetBtn = document.getElementById('reset');
 
 /*----------- Event Listeners ----------*/
 
+submitBtn.addEventListener('click', handleSubmit); 
 
 /*-------------- Functions -------------*/
 init(); 
@@ -40,6 +41,13 @@ function init() {
     winner = false; 
     render(); 
 }; 
+
+function handleSubmit(event) {
+    //console.log(playerAnswer.value);  
+    playerInput = playerAnswer.value; 
+    console.log(playerInput); 
+    renderScore(); 
+}
 
 // function to render riddles on the page 
 function renderRiddles() {
