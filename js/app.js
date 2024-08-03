@@ -14,15 +14,16 @@ const RIDDLE_KEYS = Object.keys(RIDDLESANDANSWERS);
 /*---------- Variables (state) ---------*/
 
 let currentRiddleIdx; //tracking current riddle index in RIDDLE_KEYS 
-let RiddleAns; //tracking answer to current riddle 
+let riddleAns; //tracking answer to current riddle 
 let score; //checking to see if players score is correct & track 
 let winner; //did player get 2/3 answers correctly 
-let playerInput; //player's inputed answer
+let playerAns; //player's answer
+//let endGame; //have all 3 riddles been asked & the game is over
 
 /*----- Cached Element References - things that need to reference the DOM elements -----*/
 
 const riddle = document.querySelector('.riddle'); // accessing riddle in HTML
-const playerAnswer = document.getElementById('answer'); // accessing answer inputed into textbox from player
+const playerInput = document.getElementById('answer'); // accessing answer inputed into textbox from player
 
 
 const submitBtn = document.getElementById('submit'); 
@@ -39,33 +40,70 @@ function init() {
     currentRiddleIdx = 0;  
     score = 0; 
     winner = false; 
+    playerAns = ''; 
     render(); 
 }; 
 
-function handleSubmit(event) {
-    //console.log(playerAnswer.value);  
-    playerInput = playerAnswer.value; 
-    console.log(playerInput); 
-    renderScore(); 
+function handleSubmit(event) { 
+    playerAns = playerInput.value; 
+    //console.log(playerAns);  
+    checkAnswers(); 
+    // add 1 to currentRiddleIdx to move onto next question 
+    //checkEndGame(); 
+    currentRiddleIdx++;  
+    render(); 
+    ; 
+}
+
+/*
+function checkEndGame() {
+    for (let i = 0; i < currentRiddleIdx.length; i++) {
+        console.log(currentRiddleIdx)
+        currentRiddleIdx++; 
+    }
+}
+*/
+
+function checkAnswers() {
+    // adding +1 to score if answer if correct 
+    riddleAns = RIDDLESANDANSWERS[RIDDLE_KEYS[currentRiddleIdx]].answer;
+    if (playerAns === riddleAns) {
+        score += 1; 
+        console.log(score); 
+    }; ; 
+}
+
+function checkWinner() {
+    if (score >= 2) { 
+        winner = true; 
+    }; 
 }
 
 // function to render riddles on the page 
 function renderRiddles() {
+    if (currentRiddleIdx >= RIDDLE_KEYS.length) {
+        //riddle.innerText = score; 
+        return; 
+    }
     currentRiddle = RIDDLESANDANSWERS[RIDDLE_KEYS[currentRiddleIdx]].riddle; 
-    console.log(currentRiddleIdx); 
+    //console.log(currentRiddleIdx); 
     riddle.innerHTML = currentRiddle; 
-}
-
-// function to render score 
-function renderScore() {
-    console.log(currentRiddle)
-    RiddleAns = RIDDLESANDANSWERS[RIDDLE_KEYS[currentRiddleIdx]].answer; 
-    console.log(RiddleAns); 
-    // if statement to compare playerInput to currentRiddleAns
 }
 
 function render() {
     renderRiddles(); 
-    renderScore(); 
+    //renderCorrectAnswers(); 
 }; 
+
  
+// weekend goals: 
+// score!!! -> starts at 0, so correct is 1? 
+// flowing through questions w/approrpiate score 
+// iterate through questions to end game
+
+
+//things to do: 
+// score if correct answer 
+// end after 3rd riddle 
+// win or loss logic - check to see if score if >2 
+// win or loss message 
