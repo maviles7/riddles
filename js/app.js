@@ -66,6 +66,10 @@ function checkAnswers() {
 }
 
 function checkWinner() {
+    //console.log(currentRiddleIdx + 1, RIDDLE_KEYS.length, currentRiddleIdx + 1 < RIDDLE_KEYS.length)
+    if (currentRiddleIdx + 1 < RIDDLE_KEYS.length) {
+        return; 
+    }
     if (score > 2) { 
         winner = true;  
         eogMessage.innerText = "winner winner"; 
@@ -80,6 +84,7 @@ function renderRiddles() {
         //making submit button & textbox disappear
         playerInput.style.display = 'none'; 
         submitBtn.style.display = 'none'; 
+        riddle.style.display = 'none'; 
         return; 
     }
     currentRiddle = RIDDLESANDANSWERS[RIDDLE_KEYS[currentRiddleIdx]].riddle; 
