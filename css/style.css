@@ -24,4 +24,9 @@ header > * {
 #reset {
     margin-top: 1rem;
 }
+
+.visible {
+    visibility: visible;
+}
+
    

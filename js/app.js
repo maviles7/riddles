@@ -18,7 +18,6 @@ let riddleAns; //tracking answer to current riddle
 let score; //checking to see if players score is correct & track 
 let winner; //did player get 2/3 answers correctly 
 let playerAns; //player's answer
-//let endGame; //have all 3 riddles been asked & the game is over
 
 /*----- Cached Element References - things that need to reference the DOM elements -----*/
 
@@ -28,6 +27,8 @@ const playerInput = document.getElementById('answer'); // accessing answer input
 
 const submitBtn = document.getElementById('submit'); 
 const resetBtn = document.getElementById('reset'); 
+
+const eogMessage = document.getElementById('eogMessage'); 
 
 /*----------- Event Listeners ----------*/
 
@@ -46,23 +47,14 @@ function init() {
 
 function handleSubmit(event) { 
     playerAns = playerInput.value; 
-    //console.log(playerAns);  
+    //console.log(playerAns)  
     checkAnswers(); 
-    // add 1 to currentRiddleIdx to move onto next question 
-    //checkEndGame(); 
+    checkWinner(); 
+    // add 1 to currentRiddleIdx to move onto next question: 
     currentRiddleIdx++;  
     render(); 
     ; 
 }
-
-/*
-function checkEndGame() {
-    for (let i = 0; i < currentRiddleIdx.length; i++) {
-        console.log(currentRiddleIdx)
-        currentRiddleIdx++; 
-    }
-}
-*/
 
 function checkAnswers() {
     // adding +1 to score if answer if correct 
@@ -74,15 +66,20 @@ function checkAnswers() {
 }
 
 function checkWinner() {
-    if (score >= 2) { 
-        winner = true; 
+    if (score > 2) { 
+        winner = true;  
+        eogMessage.innerText = "winner winner"; 
+    } else {
+        eogMessage.innerText = "WML"; 
     }; 
 }
 
 // function to render riddles on the page 
 function renderRiddles() {
     if (currentRiddleIdx >= RIDDLE_KEYS.length) {
-        //riddle.innerText = score; 
+        //making submit button & textbox disappear
+        playerInput.style.display = 'none'; 
+        submitBtn.style.display = 'none'; 
         return; 
     }
     currentRiddle = RIDDLESANDANSWERS[RIDDLE_KEYS[currentRiddleIdx]].riddle; 
@@ -92,18 +89,14 @@ function renderRiddles() {
 
 function render() {
     renderRiddles(); 
-    //renderCorrectAnswers(); 
 }; 
 
- 
-// weekend goals: 
-// score!!! -> starts at 0, so correct is 1? 
-// flowing through questions w/approrpiate score 
-// iterate through questions to end game
+
 
 
 //things to do: 
-// score if correct answer 
-// end after 3rd riddle 
+// score if correct answer (:
+// end after 3rd riddle (: 
 // win or loss logic - check to see if score if >2 
 // win or loss message 
+// reset button 
