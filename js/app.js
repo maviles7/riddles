@@ -33,6 +33,7 @@ const eogMessage = document.getElementById('eogMessage');
 /*----------- Event Listeners ----------*/
 
 submitBtn.addEventListener('click', handleSubmit); 
+resetBtn.addEventListener('click', init); 
 
 /*-------------- Functions -------------*/
 init(); 
@@ -42,6 +43,10 @@ function init() {
     score = 0; 
     winner = false; 
     playerAns = ''; 
+    playerInput.style.visibility = 'visible'; 
+    submitBtn.style.visibility = 'visible'; 
+    riddle.style.visibility = 'visible'; 
+    eogMessage.style.visibility = 'hidden'; 
     render(); 
 }; 
 
@@ -61,7 +66,7 @@ function checkAnswers() {
     riddleAns = RIDDLESANDANSWERS[RIDDLE_KEYS[currentRiddleIdx]].answer;
     if (playerAns === riddleAns) {
         score += 1; 
-        console.log(score); 
+        //console.log(score); 
     }; ; 
 }
 
@@ -72,8 +77,10 @@ function checkWinner() {
     }
     if (score > 2) { 
         winner = true;  
+        eogMessage.style.visibility = 'visible'; 
         eogMessage.innerText = "winner winner"; 
     } else {
+        eogMessage.style.visibility = 'visible'; 
         eogMessage.innerText = "WML"; 
     }; 
 }
@@ -82,9 +89,9 @@ function checkWinner() {
 function renderRiddles() {
     if (currentRiddleIdx >= RIDDLE_KEYS.length) {
         //making submit button & textbox disappear
-        playerInput.style.display = 'none'; 
-        submitBtn.style.display = 'none'; 
-        riddle.style.display = 'none'; 
+        playerInput.style.visibility = 'hidden'; 
+        submitBtn.style.visibility = 'hidden'; 
+        riddle.style.visibility = 'hidden'; 
         return; 
     }
     currentRiddle = RIDDLESANDANSWERS[RIDDLE_KEYS[currentRiddleIdx]].riddle; 
@@ -102,6 +109,7 @@ function render() {
 //things to do: 
 // score if correct answer (:
 // end after 3rd riddle (: 
-// win or loss logic - check to see if score if >2 
-// win or loss message 
+// win or loss logic - check to see if score if >2 (:
+// win or loss message (: 
 // reset button 
+// clear TB 
