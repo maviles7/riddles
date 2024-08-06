@@ -18,6 +18,7 @@ header > * {
 
 .riddle-and-answer > div {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     font-size: xx-large;
@@ -33,7 +34,6 @@ header > * {
     color: rgb(42, 202, 55);
     background-color: black;
     border-color: rgb(42, 202, 55);
-    margin-left: 1rem;
     font-size: x-large;
     text-align: center;
 }
@@ -41,6 +41,7 @@ header > * {
 #submit {
     border-color: rgb(42, 202, 55);
     font-size: x-large;
+    margin-top: 50px;
 }
 
 #reset {
