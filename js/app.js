@@ -17,6 +17,7 @@ let riddleAns; //tracking answer to current riddle
 let score; //checking to see if players score is correct & track 
 let winner; //did player get 2/3 answers correctly 
 let playerAns; //player's answer 
+let timer; 
 
 /*----- Cached Element References - things that need to reference the DOM elements -----*/
 
@@ -46,8 +47,18 @@ function init() {
     submitBtn.style.visibility = 'visible'; 
     riddle.style.visibility = 'visible'; 
     eogMessage.style.visibility = 'hidden'; 
+    timer = setInterval(runGame, 1000); 
     render(); 
 }; 
+
+function runGame() {
+    let count = 60; 
+    count--; 
+    console.log(count); //why is this counting up?>
+    // if (count === 0) {
+    //  clearInterval(timer)
+    //  init()}; 
+}
 
 function handleSubmit(event) { 
     playerAns = playerInput.value.toLowerCase(); 
@@ -99,4 +110,7 @@ function render() {
     renderRiddles(); 
 }; 
 
+// finish read me 
+// get timer to count down 
 // why does reset game not clear the TB? 
+// try to make it mobile friendly 
