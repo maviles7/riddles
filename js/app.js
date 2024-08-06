@@ -3,7 +3,7 @@
 //object w/property of ra1 -> ra1 also has a property of riddle 
 const RIDDLESANDANSWERS = {
     ra1: {riddle: 'I am an odd number. Take away a letter and I become even. What number am I?', answer: 'seven'}, 
-    ra2: {riddle: 'I am a word of three letters. Add two more and the less of me there will be. What word am I?', answer: 'few'}, 
+    ra2: {riddle: 'I am a word of three letters. Add two more and the less of me there is. What word am I?', answer: 'few'}, 
     ra3: {riddle: 'The more of me there is, the less you can see. What am I?', answer: 'darkness'}   
 }; 
 
@@ -102,14 +102,3 @@ function renderRiddles() {
 function render() {
     renderRiddles(); 
 }; 
-
-
-
-
-//things to do: 
-// score if correct answer (:
-// end after 3rd riddle (: 
-// win or loss logic - check to see if score if >2 (:
-// win or loss message (: 
-// reset button 
-// clear TB 
