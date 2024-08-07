@@ -67,12 +67,12 @@ function runGame() {
     countdownMsg.innerText = count; 
     if (count === 0) {
         clearInterval(timer);
-        outoftimeMsg.style.visibility = 'visible'; 
-        outoftimeMsg.innerText = 'out of time'; 
         instructions.style.visibility = 'hidden';
         riddle.style.visibility = 'hidden'; 
         playerInput.style.visibility = 'hidden'; 
         submitBtn.style.visibility = 'hidden';  
+        outoftimeMsg.style.visibility = 'visible'; 
+        outoftimeMsg.innerText = 'Looks like you are out of time. The Riddler is walking free, but keep trying to send him back to Arkham.'; 
     }
 }
 
@@ -82,6 +82,7 @@ function handleSubmit(event) {
     checkWinner(); 
     // add 1 to currentRiddleIdx to move onto next question: 
     currentRiddleIdx++;  
+    playerInput.value = ''; 
     render(); 
     ; 
 }
@@ -101,14 +102,15 @@ function checkWinner() {
     if (score >= 2) { 
         winner = true;  
         eogMessage.style.visibility = 'visible'; 
-        eogMessage.innerText = "winner winner"; 
-        instructions.style.visibility = 'hidden'; 
-        countdownMsg.style.visibility = 'hidden'; 
+        eogMessage.innerText = "Congratulations! You've answered enough riddles correctly and send The Riddler back to Arkham. Gotham is save for now."; 
+        instructions.style.visibility = 'hidden';
+        countdownMsg.style.visibility = 'hidden' 
     } else {
         eogMessage.style.visibility = 'visible'; 
-        eogMessage.innerText = "WML";
+        eogMessage.innerText = "Oh no. Not quite enough brain power to send The Riddler back Arkham. He is free to reek havoc on Gotham. Try again to save Gotham.";
         instructions.style.visibility = 'hidden'; 
-        countdownMsg.style.visibility = 'hidden'; 
+        countdownMsg.style.visibility = 'hidden' 
+        outoftimeMsg.style.visibility = 'hidden'
     }; 
 }
 
@@ -119,6 +121,7 @@ function renderRiddles() {
         playerInput.style.visibility = 'hidden'; 
         submitBtn.style.visibility = 'hidden'; 
         riddle.style.visibility = 'hidden'; 
+        outoftimeMsg.style.visibility = 'hidden'
         return; 
     }
     currentRiddle = LEVELONE[LEVELONE_KEYS[currentRiddleIdx]].riddle; 
