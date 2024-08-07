@@ -30,6 +30,8 @@ const resetBtn = document.getElementById('reset');
 
 const eogMessage = document.getElementById('eogMessage'); 
 
+const timerMsg = document.querySelector('.timer'); 
+
 /*----------- Event Listeners ----------*/
 
 submitBtn.addEventListener('click', handleSubmit); 
@@ -43,26 +45,27 @@ function init() {
     score = 0; 
     winner = false; 
     playerAns = ''; 
+    timer = setTimeout(runGame, '10000'); 
     playerInput.style.visibility = 'visible'; 
     submitBtn.style.visibility = 'visible'; 
     riddle.style.visibility = 'visible'; 
     eogMessage.style.visibility = 'hidden'; 
-    timer = setInterval(runGame, 1000); 
     render(); 
 }; 
 
+
 function runGame() {
-    let count = 60; 
-    count--; 
-    console.log(count); //why is this counting up?>
-    // if (count === 0) {
-    //  clearInterval(timer)
-    //  init()}; 
+    for ( i = 10; i > 0; i--) {
+        timerMsg.innerText = i; 
+    }
+    timerMsg.innerText = 'outta time.'
+    playerInput.style.visibility = 'hidden'; 
+    submitBtn.style.visibility = 'hidden'; 
+    riddle.style.visibility = 'hidden';    
 }
 
 function handleSubmit(event) { 
     playerAns = playerInput.value.toLowerCase(); 
-    console.log(playerAns); 
     checkAnswers(); 
     checkWinner(); 
     // add 1 to currentRiddleIdx to move onto next question: 
@@ -110,7 +113,6 @@ function render() {
     renderRiddles(); 
 }; 
 
-// finish read me 
 // get timer to count down 
 // why does reset game not clear the TB? 
 // try to make it mobile friendly 

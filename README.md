@@ -1,5 +1,5 @@
 # <Riddle Me This>
-A quiz game inspired by one of DC Comic's supervillians, The Riddler. The goal of the game is to answer 2 out of the 3 riddles in order to win.  
+A quiz game inspired by one of DC Comic's supervillians, The Riddler. The goal of the game is to answer 2 out of the 3 riddles in order to win. I choose this game because while I am notriously aweful at riddles, I love superheros and supervillians. Both riddles and coding having tested my paitence and logic so I belive to be an appropriate choice of a game to create. 
 
 # Screenshot
 

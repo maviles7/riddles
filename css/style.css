@@ -24,6 +24,10 @@ header > * {
     font-size: xx-large;
 }
 
+.riddle {
+    text-align: center;
+}
+
 .button {
     display: flex;
     flex-direction: column;
