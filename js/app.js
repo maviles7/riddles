@@ -31,7 +31,8 @@ const resetBtn = document.getElementById('reset');
 
 const eogMessage = document.getElementById('eogMessage'); 
 
-const timerMsg = document.querySelector('.timer'); 
+const countdownMsg = document.getElementById('countdown'); 
+const outoftimeMsg = document.getElementById('outoftime'); 
 
 const instructions = document.querySelector('.instructions'); 
 
@@ -55,6 +56,7 @@ function init() {
     submitBtn.style.visibility = 'visible'; 
     riddle.style.visibility = 'visible'; 
     eogMessage.style.visibility = 'hidden'; 
+    outoftimeMsg.style.visibility = 'hidden'; 
     render(); 
 }; 
 
@@ -62,10 +64,11 @@ function init() {
 function runGame() {
     count--; 
     console.log(count); 
-    timerMsg.innerText = count; 
+    countdownMsg.innerText = count; 
     if (count === 0) {
         clearInterval(timer);
-        eogMessage.innerText = "out of time"; 
+        outoftimeMsg.style.visibility = 'visible'; 
+        outoftimeMsg.innerText = 'out of time'; 
         playerInput.style.visibility = 'hidden'; 
         submitBtn.style.visibility = 'hidden'; 
         riddle.style.visibility = 'hidden'; 
@@ -100,10 +103,12 @@ function checkWinner() {
         eogMessage.style.visibility = 'visible'; 
         eogMessage.innerText = "winner winner"; 
         instructions.style.visibility = 'hidden'; 
+        countdownMsg.style.visibility = 'hidden'; 
     } else {
         eogMessage.style.visibility = 'visible'; 
         eogMessage.innerText = "WML";
         instructions.style.visibility = 'hidden'; 
+        countdownMsg.style.visibility = 'hidden'; 
     }; 
 }
 
