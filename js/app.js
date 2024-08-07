@@ -33,6 +33,8 @@ const eogMessage = document.getElementById('eogMessage');
 
 const timerMsg = document.querySelector('.timer'); 
 
+const instructions = document.querySelector('.instructions'); 
+
 /*----------- Event Listeners ----------*/
 
 submitBtn.addEventListener('click', handleSubmit); 
@@ -48,6 +50,7 @@ function init() {
     playerAns = ''; 
     count = 10; 
     timer = setInterval(runGame, 1000); 
+    instructions.style.visibility = 'visible'; 
     playerInput.style.visibility = 'visible'; 
     submitBtn.style.visibility = 'visible'; 
     riddle.style.visibility = 'visible'; 
@@ -62,7 +65,11 @@ function runGame() {
     timerMsg.innerText = count; 
     if (count === 0) {
         clearInterval(timer);
-        init(); 
+        eogMessage.innerText = "out of time"; 
+        playerInput.style.visibility = 'hidden'; 
+        submitBtn.style.visibility = 'hidden'; 
+        riddle.style.visibility = 'hidden'; 
+        instructions.style.visibility = 'hidden'; 
     }
 }
 
@@ -92,9 +99,11 @@ function checkWinner() {
         winner = true;  
         eogMessage.style.visibility = 'visible'; 
         eogMessage.innerText = "winner winner"; 
+        instructions.style.visibility = 'hidden'; 
     } else {
         eogMessage.style.visibility = 'visible'; 
-        eogMessage.innerText = "WML"; 
+        eogMessage.innerText = "WML";
+        instructions.style.visibility = 'hidden'; 
     }; 
 }
 
