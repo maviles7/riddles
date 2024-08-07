@@ -52,9 +52,9 @@ function init() {
     count = 10; 
     timer = setInterval(runGame, 1000); 
     instructions.style.visibility = 'visible'; 
+    riddle.style.visibility = 'visible'; 
     playerInput.style.visibility = 'visible'; 
     submitBtn.style.visibility = 'visible'; 
-    riddle.style.visibility = 'visible'; 
     eogMessage.style.visibility = 'hidden'; 
     outoftimeMsg.style.visibility = 'hidden'; 
     render(); 
@@ -69,10 +69,10 @@ function runGame() {
         clearInterval(timer);
         outoftimeMsg.style.visibility = 'visible'; 
         outoftimeMsg.innerText = 'out of time'; 
-        playerInput.style.visibility = 'hidden'; 
-        submitBtn.style.visibility = 'hidden'; 
+        instructions.style.visibility = 'hidden';
         riddle.style.visibility = 'hidden'; 
-        instructions.style.visibility = 'hidden'; 
+        playerInput.style.visibility = 'hidden'; 
+        submitBtn.style.visibility = 'hidden';  
     }
 }
 
