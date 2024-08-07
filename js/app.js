@@ -18,6 +18,7 @@ let score; //checking to see if players score is correct & track
 let winner; //did player get 2/3 answers correctly 
 let playerAns; //player's answer 
 let timer; 
+let count; 
 
 /*----- Cached Element References - things that need to reference the DOM elements -----*/
 
@@ -45,7 +46,8 @@ function init() {
     score = 0; 
     winner = false; 
     playerAns = ''; 
-    timer = setTimeout(runGame, '10000'); 
+    count = 10; 
+    timer = setInterval(runGame, 1000); 
     playerInput.style.visibility = 'visible'; 
     submitBtn.style.visibility = 'visible'; 
     riddle.style.visibility = 'visible'; 
@@ -55,13 +57,13 @@ function init() {
 
 
 function runGame() {
-    for ( i = 10; i > 0; i--) {
-        timerMsg.innerText = i; 
+    count--; 
+    console.log(count); 
+    timerMsg.innerText = count; 
+    if (count === 0) {
+        clearInterval(timer);
+        init(); 
     }
-    timerMsg.innerText = 'outta time.'
-    playerInput.style.visibility = 'hidden'; 
-    submitBtn.style.visibility = 'hidden'; 
-    riddle.style.visibility = 'hidden';    
 }
 
 function handleSubmit(event) { 
