@@ -50,6 +50,7 @@ function init() {
     winner = false; 
     playerAns = ''; 
     count = 10; 
+    countdownMsg.style.visibility = 'visible'; 
     countdownMsg.innerText = 10; 
     timer = setInterval(runGame, 1000); 
     instructions.style.visibility = 'visible'; 
@@ -112,7 +113,6 @@ function checkWinner() {
         eogMessage.innerText = "Oh no. Not quite enough brain power to send The Riddler back Arkham. He is free to reek havoc on Gotham. Try again to save Gotham.";
         instructions.style.visibility = 'hidden'; 
         countdownMsg.style.visibility = 'hidden' 
-        outoftimeMsg.style.visibility = 'hidden'
         clearInterval(timer); 
     }; 
 }
