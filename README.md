@@ -16,7 +16,7 @@ A quiz game inspired by one of DC Comic's supervillians, The Riddler. The goal o
 # Getting Started
 
 - [Click to view Planning](https://github.com/maviles7/categoriesquizgameproject/tree/main/PlanningFolder)
-- [Click to Play Riddles!](https://maviles7.github.io/categoriesquizgameproject/)
+- [Click to Play Riddles!](https://maviles7.github.io/riddles_L1/)
 
 # Next Steps
 
