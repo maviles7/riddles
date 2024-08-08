@@ -49,9 +49,9 @@ function init() {
     score = 0; 
     winner = false; 
     playerAns = ''; 
-    count = 10; 
+    count = 60; 
     countdownMsg.style.visibility = 'visible'; 
-    countdownMsg.innerText = 10; 
+    countdownMsg.innerText = 60; 
     timer = setInterval(runGame, 1000); 
     instructions.style.visibility = 'visible'; 
     riddle.style.visibility = 'visible'; 
@@ -65,7 +65,6 @@ function init() {
 
 function runGame() {
     count--; 
-    console.log(count); 
     countdownMsg.innerText = count; 
     if (count === 0) {
         clearInterval(timer);
@@ -104,7 +103,7 @@ function checkWinner() {
     if (score >= 2) { 
         winner = true;  
         eogMessage.style.visibility = 'visible'; 
-        eogMessage.innerText = "Congratulations! You've answered enough riddles correctly and send The Riddler back to Arkham. Gotham is save for now."; 
+        eogMessage.innerText = "Congratulations! You've answered enough riddles correctly and sent The Riddler back to Arkham. Gotham is save for now."; 
         instructions.style.visibility = 'hidden';
         countdownMsg.style.visibility = 'hidden' 
         clearInterval(timer); 
@@ -134,7 +133,3 @@ function renderRiddles() {
 function render() {
     renderRiddles(); 
 }; 
-
-// get timer to count down 
-// why does reset game not clear the TB? 
-// try to make it mobile friendly 

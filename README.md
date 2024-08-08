@@ -3,7 +3,9 @@ A quiz game inspired by one of DC Comic's supervillians, The Riddler. The goal o
 
 # Screenshot
 
-<img src="https://imgur.com/a/2lW27Xg">
+![screenshot of Riddles](https://i.imgur.com/67Zew6x.png)
+
+
 
 # Technologies Used
 
@@ -13,9 +15,9 @@ A quiz game inspired by one of DC Comic's supervillians, The Riddler. The goal o
 
 # Getting Started
 
+[Click to view Planning] (https://github.com/maviles7/categoriesquizgameproject/tree/main/PlanningFolder)
 [Click to Play Riddles!](https://maviles7.github.io/categoriesquizgameproject/)
 
 # Next Steps
 
-- One future inhancement to look forward to would be a countdown timer to limit the amount of time to answer the 3 riddles. 
-- Another enhancement to look forward to is progression through levels that get harder as the game progresses. 
+- An enhancement to look forward to is progression through levels that get harder as the game progresses. 
