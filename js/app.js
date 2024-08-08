@@ -16,8 +16,8 @@ let riddleAns; //tracking answer to current riddle
 let score; //checking to see if players score is correct & track 
 let winner; //did player get 2/3 answers correctly 
 let playerAns; //player's answer 
-let timer;
-let count;
+let timer; //sets timer 
+let count; //sets length of timer & countdown
 
 /*----- Cached Element References - things that need to reference the DOM elements -----*/
 
