@@ -107,7 +107,7 @@ function checkWinner() {
         clearInterval(timer);
     } else {
         eogMessage.style.visibility = 'visible';
-        eogMessage.innerText = "Oh no. Not quite enough brain power to send The Riddler back Arkham. He is free to reek havoc on Gotham. Try again to save Gotham.";
+        eogMessage.innerText = "Oh no. Not quite enough brain power to send The Riddler back Arkham. He is free to wreak havoc on Gotham. Try again to save Gotham.";
         instructions.style.visibility = 'hidden';
         countdownMsg.style.visibility = 'hidden'
         clearInterval(timer);
