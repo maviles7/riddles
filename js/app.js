@@ -32,12 +32,18 @@ const eogMessage = document.getElementById('eogMessage');
 
 const countdownMsg = document.getElementById('countdown');
 const outoftimeMsg = document.getElementById('outoftime');
+const feedbackMessage = document.getElementById('feedbackMessage');
 
 const instructions = document.querySelector('.instructions');
 
 /*----------- Event Listeners ----------*/
 
 submitBtn.addEventListener('click', handleSubmit);
+playerInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        handleSubmit(event);
+    }
+});
 resetBtn.addEventListener('click', init);
 
 /*-------------- Functions -------------*/
@@ -79,9 +85,15 @@ function runGame() {
 function handleSubmit(event) {
     playerAns = playerInput.value.toLowerCase();
     checkAnswers();
+    // only move on if answer is correct
+    if (playerAns === riddleAns) {
+        currentRiddleIdx++;
+        feedbackMessage.style.visibility = 'hidden';
+    } else {
+        feedbackMessage.style.visibility = 'visible';
+        feedbackMessage.innerText = 'Incorrect. Try againn';
+    }
     checkWinner();
-    // add 1 to currentRiddleIdx to move onto next question: 
-    currentRiddleIdx++;
     playerInput.value = '';
     render();
 }
